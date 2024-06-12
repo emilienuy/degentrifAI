@@ -13,7 +13,7 @@ ul {
     padding-left: 0;
 }
 footer {
-    background-color: #059669;
+    background-color: #065f46;
     color: #bbb;
     line-height: 1.5;
 }
@@ -44,19 +44,51 @@ body {
 
 //Line Up Social Footer
 
+// .ft-social {
+//     padding: 0 1.875rem 1.25rem;
+// }
+// .ft-social-list {
+//     display: flex;
+//     justify-content: center;
+//     border-bottom: 1px #777 solid; 
+//     padding-top: 1.25rem;
+// }
+// .ft-social-list li {
+//     margin: 0.5rem;
+//     font-size: 1.25rem;
+// }
+
 .ft-social {
-    padding: 0 1.875rem 1.25rem;
-}
-.ft-social-list {
     display: flex;
-    justify-content: center;
-    border-top: 1px #777 solid; 
-    padding-top: 1.25rem;
-}
-.ft-social-list li {
-    margin: 0.5rem;
-    font-size: 1.25rem;
-}
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Adjust padding as needed */
+  }
+  
+  .ft-social-icons {
+    display: flex;
+  }
+  
+  .ft-social-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .ft-social-list li {
+    margin-right: 15px; /* Adjust spacing between icons as needed */
+  }
+  
+  .ft-social-list li a {
+    color: inherit; /* Adjust color as needed */
+    text-decoration: none;
+  }
+  
+  .ft-social-logo img {
+    height: 40px; /* Adjust the size of the logo as needed */
+  }
+  
 
 //Line up Main Footer
 
@@ -81,23 +113,23 @@ body {
     }
 }
 
-//Line Up Legal Footer (copyright) 
+//Line Up Legal Footer (copyright) // Done Phase 1
 
 .ft-copyright {
-    padding: 0.9375rem 1.875rem;
-    background-color: #065f46;
+    //padding: 0.9375rem 1.875rem;
+    background-color: #022c22;
 }
 .ft-copyright-list {
     width: 100%;//remove?
     display: flex;
-    border-top: 1px #777 solid; //added
+    //border-top: 1px #696969 solid; //added
     justify-content: center; //added
     flex-wrap: wrap;//review
-    padding-top: 1.25rem;
+    //padding-top: 1.25rem;
 }
 .ft-copyright-list li {
     margin: 0.125rem 0.625rem;
-    white-space: nowrap;
+   white-space: nowrap;
 }
 /* one before the last child */
 .ft-legal-list li:nth-last-child(2) {
