@@ -13,7 +13,7 @@ ul {
     padding-left: 0;
 }
 footer {
-    background-color: #065f46;
+    background-color: #5b21b6;//#065f46;
     color: #bbb;
     line-height: 1.5;
 }
@@ -88,6 +88,10 @@ body {
   .ft-social-logo img {
     height: 40px; /* Adjust the size of the logo as needed */
   }
+
+  .icon {
+    font-size: 30px;
+  }
   
 
 //Line up Main Footer
@@ -117,7 +121,7 @@ body {
 
 .ft-copyright {
     //padding: 0.9375rem 1.875rem;
-    background-color: #022c22;
+    background-color: #2e1065; //#022c22; 
 }
 .ft-copyright-list {
     width: 100%;//remove?
