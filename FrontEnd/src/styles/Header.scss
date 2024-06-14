@@ -238,7 +238,7 @@
 
 .header-container {
     background-color: #5b21b6; /* Dark purple */
-    padding: 10px 20px;
+    padding: 20px 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -255,7 +255,7 @@
 }
 
 .search-icon {
-    font-size: 1.3rem; /* Adjust icon size as needed */
+    font-size: 1.0rem; /* Adjust icon size as needed */
     color: #bbb;
 }
 
@@ -282,7 +282,7 @@
     background: none;
     border: none;
     color: inherit;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     cursor: pointer;
     display: flex;
     align-items: center;
