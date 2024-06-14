@@ -1,11 +1,10 @@
-// src/pages/Team.jsx
-
+// ./pages/Process.jsx
 import React from 'react';
 
-const Team = () => {
+const Process = () => {
   return (
     <div className="demo-container">
-      <h1>Team Page</h1>
+      <h1>Process Page</h1>
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam maximus dolor vel euismod elementum. Aliquam magna ipsum, tristique sit amet sagittis eget, pharetra id erat. Fusce feugiat magna ante, in venenatis ex efficitur a. Suspendisse ipsum elit, dignissim non sem sit amet, aliquet auctor mi. Quisque ante augue, semper a lorem sed, viverra dictum urna. Cras at libero commodo, efficitur enim ac, ornare sapien. Nam a eros ac leo pharetra venenatis. Nullam hendrerit, enim a semper suscipit, mi ipsum convallis nibh, ut auctor purus sem vel felis. Fusce semper ultrices leo ut sollicitudin. Fusce venenatis pharetra metus et mollis.
 
@@ -31,4 +30,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default Process;

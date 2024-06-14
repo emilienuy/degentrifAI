@@ -1,1 +1,335 @@
+// @import './tailwind.css';
+
+// @import './tailwind.css';
+
+// #div_top_hypers {
+//     background-color: aqua;
+//     display: inline;
+// }
+// #ul_top_hypers li{
+//     display: inline;
+// }
+
+// @import './tailwind.css';
+
+// #div_top_hypers {
+//     background-color: #a5b4fc;
+//     padding: 10px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// #ul_tope_hypers {
+//     display: flex;
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+// #ul_tope_hypers li {
+//     margin: 0 15px; /* Adjust spacing between links as needed */
+// }
+
+// #ul_tope_hypers li a {
+//     color: inherit; /* Adjust color as needed */
+//     text-decoration: none;
+// }
+
+//New Header Style
+// @import './tailwind.css';
+
+// .header-container {
+//     background-color: #5b21b6; /* Dark purple */
+//     padding: 10px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     border-radius: 15px 15px 0 0; /* Curved edges at the top */
+//     color: #eee; /* Adjust color as needed */
+// }
+
+// .nav-links {
+//     flex: 1;
+// }
+
+// #ul_tope_hypers {
+//     display: flex;
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+// #ul_tope_hypers li {
+//     margin: 0 15px; /* Adjust spacing between links as needed */
+// }
+
+// #ul_tope_hypers li a {
+//     color: inherit; /* Adjust color as needed */
+//     text-decoration: none;
+//     font-size: 1.2rem;
+// }
+
+// #ul_tope_hypers li a:hover {
+//     text-decoration: underline;
+// }
+
+// .logo-lang {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .lang-toggle {
+//     background: none;
+//     border: none;
+//     color: inherit;
+//     font-size: 1.2rem;
+//     margin-right: 20px;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+// }
+
+// .lang-toggle i {
+//     margin-right: 5px;
+// }
+
+// .logo img {
+//     height: 40px; /* Adjust the size of the logo as needed */
+// }
+
+// @import './tailwind.css';
+
+// .header-container {
+//     background-color: #5b21b6; /* Dark purple */
+//     padding: 10px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     border-radius: 15px 15px 0 0; /* Curved edges at the top */
+//     color: #eee; /* Adjust color as needed */
+// }
+
+// .logo-lang {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .logo {
+//     margin-right: 20px;
+// }
+
+// .logo img {
+//     height: 40px; /* Adjust the size of the logo as needed */
+// }
+
+// .lang-toggle {
+//     background: none;
+//     border: none;
+//     color: inherit;
+//     font-size: 1.2rem;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+// }
+
+// .lang-toggle i {
+//     margin-right: 5px;
+// }
+
+// .nav-links {
+//     flex: 1;
+//     display: flex;
+//     justify-content: flex-end; /* Align navigation links to the right */
+// }
+
+// #ul_tope_hypers {
+//     display: flex;
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+// #ul_tope_hypers li {
+//     margin: 0 10px; /* Adjust spacing between links as needed */
+// }
+
+// #ul_tope_hypers li a {
+//     color: inherit; /* Adjust color as needed */
+//     text-decoration: none;
+//     font-size: 1.2rem;
+// }
+
+// #ul_tope_hypers li a:hover {
+//     text-decoration: underline;
+// }
+
 @import './tailwind.css';
+
+// .header-container {
+//     background-color: #5b21b6; /* Dark purple */
+//     padding: 10px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     //border-radius: 15px 15px 0 0; /* Curved edges at the top */
+//     color: #eee; /* Adjust color as needed */
+// }
+
+// .logo {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .logo img {
+//     height: 40px; /* Adjust the size of the logo as needed */
+// }
+
+// .nav-links {
+//     font-family:’Merriweather’, serif;
+//     margin-right: 20px;
+//     display: flex;
+//     justify-content: center; /* Center the navigation links */
+//     flex-grow: 1;
+// }
+
+// #ul_tope_hypers {
+//     display: flex;
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+// #ul_tope_hypers li {
+//     margin: 0 10px; /* Adjust spacing between links as needed */
+// }
+
+// #ul_tope_hypers li a {
+//     color: inherit; /* Adjust color as needed */
+//     text-decoration: none;
+//     font-size: 1.2rem;
+// }
+
+// #ul_tope_hypers li a:hover {
+//     text-decoration: underline;
+// }
+
+// .lang-toggle-container {
+//     display: flex;
+//     align-items: center;
+//     color: #bbb;
+// }
+
+// .lang-toggle {
+//     background: none;
+//     border: none;
+//     color: inherit;
+//     font-size: 1.2rem;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+// }
+
+// .lang-toggle i {
+//     margin-right: 5px;
+// }
+
+@import './tailwind.css';
+
+.header-container {
+    background-color: #5b21b6; /* Dark purple */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    //border-radius: 15px 15px 0 0; /* Curved edges at the top */
+    color: #eee; /* Adjust color as needed */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between search icon and input */
+    padding-right: 20px
+}
+
+.search-icon {
+    font-size: 1.3rem; /* Adjust icon size as needed */
+    color: #bbb;
+}
+
+.search-input {
+    padding: 2px 3px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px; /* Rounded corners for the search box */
+}
+
+.hd-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.lang-toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.lang-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #bbb;
+}
+
+.lang-toggle i {
+    margin-right: 5px;
+}
+
+.hd-main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hd-logo {
+    display: flex;
+    align-items: center;
+}
+
+.hd-logo img {
+    height: 40px; /* Adjust the size of the logo as needed */
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links ul li {
+    margin: 0 15px; /* Adjust spacing between links as needed */
+}
+
+.nav-links ul li a {
+    color: inherit; /* Adjust color as needed */
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nav-links ul li a:hover {
+    text-decoration: underline;
+}
