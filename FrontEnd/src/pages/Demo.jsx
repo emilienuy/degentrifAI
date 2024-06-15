@@ -1,6 +1,6 @@
 // src/pages/Demo.jsx
 import React from 'react';
-import '../styles/Demo.scss'; // Make sure to create and link the CSS file
+import '../styles/Demo.scss'; 
 
 const Demo = () => {
     return (

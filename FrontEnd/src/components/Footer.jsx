@@ -10,7 +10,7 @@ const Footer = () => {
        {/* Footer social */}
       <section className="ft-social">
         <div className="ft-social-item"> 
-            <img src=" "alt="de.gentrificAItion"/> {/*de.gentrificAItion logo SVG */}
+            <img src=" "alt="de.gentrificAItion"/> {/*degentrificAItion logo SVG */}
         </div>
         <ul className="ft-social-list"> {/*Replace with proper links*/}
           <li><a href="https://vimeo.com"><i className="fab fa-vimeo"></i></a></li>
