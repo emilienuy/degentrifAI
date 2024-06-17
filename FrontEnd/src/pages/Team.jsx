@@ -66,6 +66,20 @@ const Team = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
             </div>
         </div>
+        <div class="team-member">
+            {/* <img src="member2.jpg" alt="Member 4" class="member-photo" /> */}
+            <div class="member-info">
+                <h2>Ali</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+        </div>
+        <div class="team-member">
+            {/* <img src="member2.jpg" alt="Member 4" class="member-photo" /> */}
+            <div class="member-info">
+                <h2>Mentors and Collaborators</h2>
+                <p>Special thanks to our mentors Anna and Samira as well as Marie, and other profs for helping us in the porcces of this project. We could not have done it without all of your kind support.</p>
+            </div>
+        </div>
     </div>
     
   );

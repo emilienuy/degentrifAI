@@ -25,7 +25,7 @@ const Header = () => {
             {/* Header Main = Logo & Navigation */}
             <section className="hd-main"> 
                 <div className="hd-logo">
-                    <img src="path_to_your_logo_image" alt="de.gentrificAItion"/> {/* Replace with actual logo path */}
+                    <img src="FrontEnd/public/pictures/logo_example.jpg"/> {/* Replace with actual logo path */}
                 </div>
 
                 <nav className="nav-links">
