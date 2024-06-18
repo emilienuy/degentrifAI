@@ -1,9 +1,14 @@
+# schemas.py
 from pydantic import BaseModel
+from typing import List, Optional
 
 class PredictionRequest(BaseModel):
-    # Define your input schema
-    pass
+    year: int
+    feature1: float
+    feature2: float
+    # Add more features as needed
 
 class PredictionResponse(BaseModel):
-    predictions: list
-    accuracy: float
+    predictions: List[int]
+    accuracy: Optional[float] = None
+

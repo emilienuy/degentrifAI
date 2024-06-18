@@ -6,6 +6,7 @@
 #     # Preprocess data
 #     return data
 
+# preprocess.py
 import pandas as pd
 
 def preprocess(data: pd.DataFrame) -> pd.DataFrame:
@@ -19,12 +20,13 @@ def preprocess(data: pd.DataFrame) -> pd.DataFrame:
         average_value = data[col].mean()
         data[col].fillna(average_value, inplace=True)
     
-    # Create a new binary label column
-    median_value = data['Average value of dwellings ($) 2016'].median()
-    data['Average value of dwellings ($) 2016'] = (data['Average value of dwellings ($) 2016'] > median_value).astype(int)
+    # Create a new binary label column if applicable (you might not need this step)
+    # median_value = data['target_column'].median()
+    # data['target_column'] = (data['target_column'] > median_value).astype(int)
     
     # Convert specific columns to float
     data[columns_to_convert] = data[columns_to_convert].astype(float)
     
     return data
+
 

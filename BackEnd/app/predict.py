@@ -13,19 +13,23 @@
 #     prediction = model.predict(data)
 #     return prediction.tolist()
 
+# predict.py
 import pandas as pd
 import xgboost as xgb
 from sklearn.metrics import accuracy_score
 from .preprocess import preprocess
 
-def predict_gentrification(request, model, db):
-    # Load and preprocess the data
-    data = pd.read_csv('data/census_data.csv')
+def predict_gentrification(request, model):
+    # Convert request to DataFrame
+    data_dict = request.dict()
+    data = pd.DataFrame([data_dict])
+    
+    # Preprocess the data
     processed_data = preprocess(data)
     
     # Define features and target
-    X = processed_data.drop('Average value of dwellings ($) 2016', axis=1)
-    y = processed_data['Average value of dwellings ($) 2016']
+    X = processed_data.drop('target_column', axis=1)  # Replace 'target_column' with the actual target column name
+    y = processed_data['target_column']  # Same as above
     
     # Convert to DMatrix (XGBoost's internal data structure)
     dmatrix = xgb.DMatrix(X)
