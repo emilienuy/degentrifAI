@@ -53,7 +53,7 @@ const Team = () => {
 
   return (
     <div className="leadership-team">
-      <h1>Our Team</h1>
+      <h1>Our Leadership Team</h1>
       <div className="team-members">
         {teamMembers.map((member, index) => (
           <div
