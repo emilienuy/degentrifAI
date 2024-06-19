@@ -5,63 +5,18 @@
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
     align-items: center;
-    // border-radius: 15px 15px 0 0; /* Curved edges at the top */
+    flex-direction: row; /* Changed from column to row */
     color: #eee; /* Adjust color as needed */
+    height: auto; /* Adjust height as needed */
 }
-
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between search icon and input */
-    padding-right: 20px;
-}
-
-.search-icon {
-    font-size: 1.0rem; /* Adjust icon size as needed */
-    color: #bbb;
-}
-
-.search-input {
-    padding: 2px 3px; /* Adjust padding as needed */
-    border: none;
-    border-radius: 5px; /* Rounded corners for the search box */
-}
-
-// .hd-toggle {
-//     width: 100%;
-//     display: flex;
-//     justify-content: flex-end;
-//     padding-bottom: 10px;
-//     padding-right: 20px;
-// }
-
-// .lang-toggle-container {
-//     display: flex;
-//     align-items: center;
-// }
-
-// .lang-toggle {
-//     background: none;
-//     border: none;
-//     color: inherit;
-//     font-size: 1.0rem;
-//     cursor: pointer;
-//     display: flex;
-//     align-items: center;
-//     color: #bbb;
-// }
-
-// .lang-toggle i {
-//     margin-right: 5px;
-// }
 
 .hd-main {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0; /* Adjust padding to reduce height */
 }
 
 .hd-logo {
@@ -71,7 +26,7 @@
 
 .hd-logo .logo {
     width: 250px; /* Adjust the size of the logo */
-    height: 200px; /* Adjust the size of the logo */
+    height: auto; /* Adjust the size of the logo while maintaining aspect ratio */
 }
 
 .nav-links {
@@ -90,11 +45,13 @@
 }
 
 .nav-links ul li a {
-    color: inherit; /* Adjust color as needed */
+    color: #eee; /* Adjust color as needed */
     text-decoration: none;
     font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
 .nav-links ul li a:hover {
     text-decoration: underline;
+    color: #1e90ff; /* Color on hover */
 }
