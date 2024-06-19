@@ -4,8 +4,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.scss';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+    const { i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'fr' : 'en';
+    i18n.changeLanguage(newLang);
+  };
+
+
     return (
         <header className="header-container"> 
 
@@ -16,8 +25,8 @@ const Header = () => {
                     <input type="text" placeholder="Search..." className="search-input" />
                 </div>
                 <div className="lang-toggle-container">
-                    <button className="lang-toggle">
-                        <i className="fas fa-globe"></i> FR
+                    <button className="lang-toggle" onClick={toggleLanguage}>
+                        <i className="fas fa-globe"></i> {i18n.language === 'en' ? 'FR' : 'EN'}
                     </button>
                 </div>
             </section>

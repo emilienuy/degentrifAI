@@ -10,7 +10,10 @@ import Demo from './pages/Demo';
 import Team from './pages/Team';
 
 
-function App() {
+// function App() {
+const App = () => {
+  const { t } = useTranslation();
+  
   return (
     <div>
       <Header />
