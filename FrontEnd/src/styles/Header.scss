@@ -1,13 +1,13 @@
 @import './tailwind.css';
 
 .header-container {
-    background-color: #0369a1;//#5b21b6; /* Dark purple */
+    background-color: #0369a1; // #5b21b6; /* Dark purple */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    //border-radius: 15px 15px 0 0; /* Curved edges at the top */
+    // border-radius: 15px 15px 0 0; /* Curved edges at the top */
     color: #eee; /* Adjust color as needed */
 }
 
@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     gap: 10px; /* Space between search icon and input */
-    padding-right: 20px
+    padding-right: 20px;
 }
 
 .search-icon {
@@ -29,33 +29,33 @@
     border-radius: 5px; /* Rounded corners for the search box */
 }
 
-.hd-toggle {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 10px;
-    padding-right: 20px;
-}
+// .hd-toggle {
+//     width: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//     padding-bottom: 10px;
+//     padding-right: 20px;
+// }
 
-.lang-toggle-container {
-    display: flex;
-    align-items: center;
-}
+// .lang-toggle-container {
+//     display: flex;
+//     align-items: center;
+// }
 
-.lang-toggle {
-    background: none;
-    border: none;
-    color: inherit;
-    font-size: 1.0rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: #bbb;
-}
+// .lang-toggle {
+//     background: none;
+//     border: none;
+//     color: inherit;
+//     font-size: 1.0rem;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+//     color: #bbb;
+// }
 
-.lang-toggle i {
-    margin-right: 5px;
-}
+// .lang-toggle i {
+//     margin-right: 5px;
+// }
 
 .hd-main {
     width: 100%;
@@ -69,8 +69,9 @@
     align-items: center;
 }
 
-.hd-logo img {
-    height: 40px; /* Adjust the size of the logo as needed */
+.hd-logo .logo {
+    width: 250px; /* Adjust the size of the logo */
+    height: 200px; /* Adjust the size of the logo */
 }
 
 .nav-links {

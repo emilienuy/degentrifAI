@@ -4,15 +4,15 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* 防止横向滚动 */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .leadership-team {
     text-align: center;
     padding: 50px 20px;
-    background-color: transparent; /* 去除背景色 */
+    background-color: transparent; /* Remove background color */
     margin: 20px auto;
-    max-width: 100%;
+    max-width: 1200px; /* Adjust as needed */
 }
 
 .leadership-team h1 {
@@ -36,26 +36,27 @@ body {
 
 .team-members {
     display: flex;
-    justify-content: space-around; /* 使每个成员等距排列 */
-    overflow-x: auto; /* 横向滚动 */
+    justify-content: space-around; 
+    flex-wrap: wrap; /* Allow wrapping */
     gap: 30px;
     padding: 20px;
 }
 
 .team-member {
-    flex: 0 0 350px; /* 调整每个成员的大小 */
-    height: 450px; /* 调整高度 */
-    background-color: transparent; /* 去除背景色 */
+    flex: 1 1 calc(33.333% - 40px); /* Adjust width to fit three in a row with gaps */
+    max-width: calc(33.333% - 40px); /* Ensure the width doesn't exceed one third */
+    height: 450px; 
+    background-color: transparent; 
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     cursor: pointer;
-    animation: fadeInUp 1s ease-in-out; /* 添加出现动画 */
+    animation: fadeInUp 1s ease-in-out; 
 }
 
 .team-member:hover {
-    transform: scale(1.05); /* 放大效果 */
+    transform: scale(1.05); 
 }
 
 .member-photo {
@@ -132,7 +133,7 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* 从下往上滑入 */
+        transform: translateY(20px); /* Slide in from bottom */
     }
     to {
         opacity: 1;
@@ -143,7 +144,7 @@ body {
 @keyframes fadeInText {
     from {
         opacity: 0;
-        transform: translateY(10px); /* 从下往上滑入 */
+        transform: translateY(10px); /* Slide in from bottom */
     }
     to {
         opacity: 1;
