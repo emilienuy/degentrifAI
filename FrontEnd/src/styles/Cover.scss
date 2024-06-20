@@ -31,14 +31,15 @@
 }
 
 .overlay {
-  width: 50%; 
-  transition: width 0.3s ease; 
+  width: 50%; /* 初始叠加图片宽度为50% */
+  transition: width 0.3s ease; /* 添加过渡效果 */
 }
 
 .content {
   position: relative;
   z-index: 1;
   text-align: center;
+  color: #fff;
 }
 
 .team-logo {
@@ -55,13 +56,13 @@
   text-decoration: none;
   font-size: 1.2rem;
   border-radius: 5px;
-  transition: background 0.3s ease, transform 0.3s ease; 
+  transition: background 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
 }
 
 .view-work:hover {
   background: #db2777;
-  color: #fff;
-  transform: scale(1.05); 
+  color:#fff;
+  transform: scale(1.05); /* 悬停时略微放大 */
 }
 
 @keyframes fadeIn {

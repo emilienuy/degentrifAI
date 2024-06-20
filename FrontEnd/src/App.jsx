@@ -1,23 +1,26 @@
 import React from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { Route, Routes } from 'react-router-dom';
-import CoverPage from './pages/Cover'
+import CoverPage from './pages/Cover';
 import About from './pages/About';
 import Process from './pages/Process';
 import Demo from './pages/Demo';
 import Team from './pages/Team';
 
 function App() {
+  const location = useLocation();
+  const showHeader = location.pathname !== '/';
+
   return (
     <div>
-      <Header />
+      {showHeader && <Header />}
       <Routes>
-        <Route path='/' element={<CoverPage />} />
+        <Route path="/" element={<CoverPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/process" element={<Process />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/process" element={<Process />} />
       </Routes>
       <Footer />
     </div>
@@ -25,6 +28,3 @@ function App() {
 }
 
 export default App;
-
-
-
