@@ -58,7 +58,7 @@ const Footer = () => {
       {/* Footer legal */}
       <section className="ft-copyright">
         <ul className="ft-copyright-list">
-          <li>&copy;2024 de.gentrificAItion. All Rights Reserved.</li>
+          <li>&copy;2024 degentrifAI. All Rights Reserved.</li>
         </ul>
       </section>
     </footer>
