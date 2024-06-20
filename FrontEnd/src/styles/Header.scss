@@ -1,14 +1,16 @@
 @import './tailwind.css';
 
 .header-container {
-    background-color: #0369a1; // #5b21b6; /* Dark purple */
+    background-color: transparent; /* 使背景透明 */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row; /* Changed from column to row */
-    color: #eee; /* Adjust color as needed */
-    height: auto; /* Adjust height as needed */
+    flex-direction: row;
+    color: #eee; /* 保持文本颜色为浅色以在深色背景上清晰可见 */
+    position: fixed; /* 固定在页面顶部 */
+    width: 100%; /* 占满页面宽度 */
+    z-index: 1000; /* 确保在其他内容之上 */
 }
 
 .hd-main {
@@ -16,7 +18,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0; /* Adjust padding to reduce height */
 }
 
 .hd-logo {
@@ -25,33 +26,83 @@
 }
 
 .hd-logo .logo {
-    width: 250px; /* Adjust the size of the logo */
-    height: auto; /* Adjust the size of the logo while maintaining aspect ratio */
+    width: auto;
+    height: 50px; /* 调整 logo 大小以适应新的设计 */
 }
 
-.nav-links {
-    display: flex;
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #eee;
+    transition: transform 0.5s, color 0.5s;
 }
 
-.nav-links ul {
+.menu-toggle.open {
+    transform: rotate(90deg);
+    color: #ff6347;
+}
+
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 30%; /* 覆盖部分页面 */
+    height: 100%;
+    background: #f0f2f5; /* 新的背景颜色 */
     display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* 确保在其他内容之上但在 header 之下 */
+    opacity: 0;
+    transition: right 0.5s ease, opacity 0.5s ease;
+}
+
+.overlay-menu.open {
+    right: 0;
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: left;
+    color: #333;
+    padding: 20px;
+}
+
+.overlay-content ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.nav-links ul li {
-    margin: 0 15px; /* Adjust spacing between links as needed */
+.overlay-content ul li {
+    margin: 20px 0;
+    font-size: 2rem;
 }
 
-.nav-links ul li a {
-    color: #eee; /* Adjust color as needed */
+.overlay-content ul li a {
+    color: #333;
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    font-size: 2rem;
+    transition: color 0.3s, text-decoration 0.3s;
 }
 
-.nav-links ul li a:hover {
+.overlay-content ul li a:hover {
+    color: #1e90ff;
     text-decoration: underline;
-    color: #1e90ff; /* Color on hover */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .overlay-menu {
+        width: 70%; /* 在移动设备上覆盖更多页面 */
+    }
 }
