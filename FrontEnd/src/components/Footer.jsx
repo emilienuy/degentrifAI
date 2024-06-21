@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Footer.scss'; //review
 import '@fortawesome/fontawesome-free/css/all.min.css'; //recheck
-
 import ai4goodLabImage from '../pictures/ai4good_lab.png';
-import milaLogo from '../pictures/milaLogo.png';
 
 const Footer = () => {
   return (
@@ -45,20 +43,19 @@ const Footer = () => {
         <div className="ft-main-item">
           <h2 className="ft-title">More</h2>
           <ul>
-            <li><Link to="/">#Fill In</Link></li>
-            <li><Link to="/Demo">#Fill In2</Link></li>
-            <li><Link to = "/Team">#Fill In3</Link></li>
+            <li><Link to="/">Documentation</Link></li>
+            <li><Link to="/Demo">Sources</Link></li>
+            <li><Link to = "/Team">Links</Link></li>
           </ul>
         </div>
         <div className="ft-main-item"> {/*AI4Good SVG logo*/}
           {/*insert here:*/}
-          {/* <a href={milaLogo}>
-            <img src={milaLogo} alt="Mila Logo" className="image-size" />
-          </a> */}
-            <a href={ai4goodLabImage}>
+          {/* <a href={ai4goodLabImage}>
             <img src={ai4goodLabImage} alt="AI4GoodLab" className="image-size" /> 
-            </a>
-            
+            </a> */}
+            <a href="https://www.ai4goodlab.com/">
+    <img src={ai4goodLabImage} alt="AI4GoodLab" className="image-size" />
+</a>
         </div>
       </section>
 
