@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import '../styles/Footer.scss'; //review
 import '@fortawesome/fontawesome-free/css/all.min.css'; //recheck
 
+import ai4goodLabImage from '../pictures/ai4good_lab.png';
+import milaLogo from '../pictures/milaLogo.png';
+
 const Footer = () => {
   return (
     <footer>
@@ -49,9 +52,13 @@ const Footer = () => {
         </div>
         <div className="ft-main-item"> {/*AI4Good SVG logo*/}
           {/*insert here:*/}
-            <a href="https://www.ai4goodlab.com/">
-                <img src=" " alt="AI4GoodLab"/>
+          {/* <a href={milaLogo}>
+            <img src={milaLogo} alt="Mila Logo" className="image-size" />
+          </a> */}
+            <a href={ai4goodLabImage}>
+            <img src={ai4goodLabImage} alt="AI4GoodLab" className="image-size" /> 
             </a>
+            
         </div>
       </section>
 
