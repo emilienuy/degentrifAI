@@ -13,7 +13,7 @@ ul {
     padding-left: 0;
 }
 footer {
-    background-color: #0369a1;//#065f46;
+    background-color: #355d4f;//#065f46;
     color: #bbb;
     line-height: 1.5;
 
@@ -51,6 +51,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px; /* Adjust padding as needed */
+    border-top: 1px #696969 solid;
     border-bottom: 1px #696969 solid;
   }
   
@@ -83,15 +84,42 @@ body {
 
 //Line up Main Footer
 
+// .ft-main {
+//     padding: 1 rem 1.875rem;
+//     display: flex;
+//     flex-wrap: wrap;
+// }
+// .ft-main-item {
+//     flex: 1;
+//     padding: 1.25rem;
+//     min-width: 12.5rem /*200px*/;
+// }
+
 .ft-main {
-    padding: 1 rem 1.875rem;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around; /* Or space-evenly, based on your media queries */
+    padding: 1rem 1.875rem;
 }
+
 .ft-main-item {
+    flex: 1;
+    min-width: 12.5rem; /* 200px */
     padding: 1.25rem;
-    min-width: 12.5rem /*200px*/;
 }
+
+
+
+.image-size {
+    // width: 300px; /* Adjust the width as needed */
+    // height: auto; /* Maintain the aspect ratio */
+    // display: block; /* Ensure the image is displayed as a block element */
+    // margin: 0 auto; /* Center the image */
+    max-width: 100%; /* Ensures the image never exceeds the width of its container */
+    height: auto;    /* Maintains the aspect ratio */
+    display: block;  /* Ensures the image is a block element */
+    margin: 0 auto;  /* Centers the image horizontally */
+  }
 
 @media only screen and (min-width: 29.8125rem /*477px*/) {
     .ft-main {
@@ -100,7 +128,11 @@ body {
 }
 @media only screen and (min-width: 77.5rem /*1240px*/ ) {
     .ft-main {
-        justify-content: space-evenly;
+        // justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Or space-evenly, based on your media queries */
+    padding: 1rem 1.875rem;
     }
 }
 
@@ -108,7 +140,7 @@ body {
 
 .ft-copyright {
     //padding: 0.9375rem 1.875rem;
-    background-color: #2e1065; //#022c22; 
+    background-color: #2e4f43; //#022c22; 
 }
 .ft-copyright-list {
     width: 100%;//remove?
