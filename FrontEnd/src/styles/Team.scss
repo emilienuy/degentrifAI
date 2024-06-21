@@ -1,23 +1,23 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f2f5;
-    color: #333;
+    background: #355D4F;
+    color: #eee;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
 }
 
 .leadership-team {
     text-align: center;
     padding: 50px 20px;
-    background-color: transparent; /* Remove background color */
+    background-color: transparent; 
     margin: 20px auto;
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1200px; 
 }
 
 .leadership-team h1 {
     font-size: 2.5em;
-    color: #333;
+    color: #eee;
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
@@ -27,7 +27,7 @@ body {
     content: '';
     width: 60px;
     height: 4px;
-    background: #0073b1;
+    background: #eee;
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -37,7 +37,7 @@ body {
 .team-members {
     display: flex;
     justify-content: space-around; 
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
     gap: 30px;
     padding: 20px;
 }
@@ -71,7 +71,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0073b1;
+    background-color: #4ade80;
     color: #fff;
     font-size: 1.5em;
     font-weight: bold;
@@ -116,7 +116,7 @@ body {
 }
 
 .member-info a {
-    color: #23a6d5;
+    color: #4ade80;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
@@ -126,7 +126,7 @@ body {
 
 .member-info a:hover {
     text-decoration: underline;
-    color: #1e90ff;
+    color: #4ade80;
 }
 
 /* Animations */
