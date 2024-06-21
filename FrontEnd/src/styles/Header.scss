@@ -1,16 +1,16 @@
 @import './tailwind.css';
 
 .header-container {
-    background-color: transparent; /* 使背景透明 */
+    background-color: transparent; 
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    color: #eee; /* 保持文本颜色为浅色以在深色背景上清晰可见 */
-    position: fixed; /* 固定在页面顶部 */
-    width: 100%; /* 占满页面宽度 */
-    z-index: 1000; /* 确保在其他内容之上 */
+    color: #eee; 
+    position: fixed; 
+    width: 100%; 
+    z-index: 1000; 
 }
 
 .hd-main {
@@ -27,14 +27,14 @@
 
 .hd-logo .logo {
     width: auto;
-    height: 50px; /* 调整 logo 大小以适应新的设计 */
+    height: 50px; 
 }
 
 .menu-toggle {
     display: block;
     cursor: pointer;
     font-size: 1.5rem;
-    color: #eee;
+    color: #000000;
     transition: transform 0.5s, color 0.5s;
 }
 
