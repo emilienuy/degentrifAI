@@ -4,9 +4,9 @@
   padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  background: #f7f9fc; /* Light background color */
+  //background: #f7f9fc; /* Light background color */
   border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  //box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   overflow: hidden;
   transition: all 0.3s ease; /* Add transition for smooth effects */
 }
@@ -18,12 +18,11 @@
 
 .header-section h1 {
   font-size: 2.5rem;
-  color: #333;
+  color: #eee;
   margin-bottom: 20px;
-  background: linear-gradient(to right, #0073b1, #00aaff);
+  background: linear-gradient(to right, #355D4F, #eee);
   -webkit-background-clip: text;
   background-clip: text; /* Add standard property */
-  color: transparent;
   animation: fadeIn 1s ease; /* Add fade-in animation */
 }
 
@@ -53,9 +52,9 @@
 
 .mission-section h2, .land-acknowledgment-section h2 {
   font-size: 2rem;
-  color: #0073b1;
+  color: #355D4F;
   margin-bottom: 20px;
-  border-bottom: 2px solid #0073b1;
+  border-bottom: 2px solid #355D4F;
   padding-bottom: 10px;
 }
 
@@ -66,14 +65,14 @@
 }
 
 .mission-section a, .land-acknowledgment-section a {
-  color: #0073b1;
+  color: #355D4F;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .mission-section a:hover, .land-acknowledgment-section a:hover {
-  color: #005582;
+  color: #355D4F;
   text-decoration: underline;
 }
 
