@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.scss';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Logo from '../pictures/text.png';
+import Logo from '../pictures/Logo_green.png';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
