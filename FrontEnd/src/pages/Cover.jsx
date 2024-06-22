@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Cover.scss';
-import TeamLogo from '../pictures/logo_pink.png';
+import TeamLogo from '../pictures/TeamLogo.png';
 import OldMontreal from '../pictures/Old_Montreal.png';
 import NewMontreal from '../pictures/New_Montreal.jpeg';
 
