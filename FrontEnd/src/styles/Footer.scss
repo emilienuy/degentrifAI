@@ -1,167 +1,5 @@
-// @import './tailwind.css';
-
-// //Basic CSS
-
-// * {
-//     box-sizing: border-box;
-//     font-family: ’Lato’, sans-serif;
-//     margin: 0; 
-//     padding: 0;
-// }
-// ul {
-//     list-style: none;
-//     padding-left: 0;
-// }
-// footer {
-//     background-color: #355d4f;//#065f46;
-//     color: #bbb;
-//     line-height: 1.5;
-
-// }
-// footer a {
-//     text-decoration: none;
-//     color: #eee;
-// }
-// a:hover {
-//     text-decoration: underline;
-// }
-// .ft-title {
-//     color: #bbb;//#fff;
-//     font-family: ’Merriweather’, serif;
-//     font-size: 1.375rem;
-//     padding-bottom: 0.625rem;
-// }
-
-// //Bottom of page
-
-// body {
-//     display: flex;
-//     min-height: 100vh;
-//     flex-direction: column;
-// }
-// .container {
-//     flex: 1;    /* same as flex-grow: 1; */
-// }
-
-
-// //Line up Social Footer
-
-// .ft-social {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 10px; /* Adjust padding as needed */
-//     border-top: 1px #696969 solid;
-//     border-bottom: 1px #696969 solid;
-//   }
-  
-//   .ft-social-icons {
-//     display: flex;
-//   }
-  
-//   .ft-social-list {
-//     display: flex;
-//     font-size: 25px;
-//     list-style: none;
-//     padding: 0;
-//     margin: 0;
-//   }
-  
-//   .ft-social-list li {
-//     margin-right: 20px; /* Adjust spacing between icons as needed */
-//   }
-  
-//   .ft-social-list li a {
-//     color: inherit; /* Adjust color as needed */
-//     text-decoration: none;
-//   }
-  
-//   .ft-social-logo img {
-//     padding-left: 20px;
-//     height: 40px; /* Adjust the size of the logo as needed */    
-//   }
-
-
-// //Line up Main Footer
-
-// // .ft-main {
-// //     padding: 1 rem 1.875rem;
-// //     display: flex;
-// //     flex-wrap: wrap;
-// // }
-// // .ft-main-item {
-// //     flex: 1;
-// //     padding: 1.25rem;
-// //     min-width: 12.5rem /*200px*/;
-// // }
-
-// .ft-main {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-around; /* Or space-evenly, based on your media queries */
-//     padding: 1rem 1.875rem;
-// }
-
-// .ft-main-item {
-//     flex: 1;
-//     min-width: 12.5rem; /* 200px */
-//     padding: 1.25rem;
-// }
-
-
-
-// .image-size {
-//     // width: 300px; /* Adjust the width as needed */
-//     // height: auto; /* Maintain the aspect ratio */
-//     // display: block; /* Ensure the image is displayed as a block element */
-//     // margin: 0 auto; /* Center the image */
-//     max-width: 100%; /* Ensures the image never exceeds the width of its container */
-//     height: auto;    /* Maintains the aspect ratio */
-//     display: block;  /* Ensures the image is a block element */
-//     margin: 0 auto;  /* Centers the image horizontally */
-//   }
-
-// @media only screen and (min-width: 29.8125rem /*477px*/) {
-//     .ft-main {
-//         justify-content: space-around;
-//     }
-// }
-// @media only screen and (min-width: 77.5rem /*1240px*/ ) {
-//     .ft-main {
-//         // justify-content: space-evenly;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-evenly; /* Or space-evenly, based on your media queries */
-//     padding: 1rem 1.875rem;
-//     }
-// }
-
-// //Line Up Legal Footer (copyright) 
-
-// .ft-copyright {
-//     //padding: 0.9375rem 1.875rem;
-//     background-color: #2e4f43; //#022c22; 
-// }
-// .ft-copyright-list {
-//     width: 100%;//remove?
-//     display: flex;
-//     //border-top: 1px #696969 solid; //added
-//     justify-content: center; //added
-//     flex-wrap: wrap;//review
-//     //padding-top: 1.25rem;
-// }
-// .ft-copyright-list li {
-//     margin: 0.125rem 0.625rem;
-//    white-space: nowrap;
-// }
-// /* one before the last child */
-// .ft-legal-list li:nth-last-child(2) {
-//     flex: 1;       /* same as flex-grow: 1; */
-// }
-
 @import './tailwind.css';
 
-// Basic CSS
 * {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
@@ -207,50 +45,14 @@ body {
   flex: 1; /* same as flex-grow: 1; */
 }
 
-// Line up Social Footer
-.ft-social {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px; /* Adjust padding as needed */
-  border-top: 1px #696969 solid;
-  border-bottom: 1px #696969 solid;
-}
-
-.ft-social-icons {
-  display: flex;
-}
-
-.ft-social-list {
-  display: flex;
-  font-size: 25px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.ft-social-list li {
-  margin-right: 20px; /* Adjust spacing between icons as needed */
-}
-
-.ft-social-list li a {
-  color: inherit; /* Adjust color as needed */
-  text-decoration: none;
-  //border: 2px solid red;
-}
-
-.ft-social-logo img {
-  padding-left: 20px;
-  height: 40px; /* Adjust the size of the logo as needed */
-}
-
 // Line up Main Footer
 .ft-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around; /* Or space-evenly, based on your media queries */
   padding: 1rem 1.875rem;
-  //border: 2px solid red;
+  border: 2px solid #a3a3a3;
+  //border-bottom-right-radius: 0.9225rem
 }
 
 .ft-main-item {
@@ -263,7 +65,8 @@ body {
 // Logo container styling
 .logo-container {
   display: flex;
-  justify-content: center; /* Center the logo container horizontally */
+  flex-direction: column; /* Arrange logo and icons vertically */
+  align-items: center; /* Center align logo and icons */
   padding: 0; /* Remove padding */
 }
 
@@ -275,7 +78,26 @@ body {
     padding-top: 25px;
     // border: 2px solid red; /* Add a visible border */
     //padding-left: px;
-  }
+}
+
+.ft-social-list {
+  display: flex;
+  font-size: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0; /* Add margin to the top */
+  justify-content: center; /* Center align the icons */
+}
+
+.ft-social-list li {
+  margin-right: 20px; /* Adjust spacing between icons as needed */
+}
+
+.ft-social-list li a {
+  color: inherit; /* Adjust color as needed */
+  text-decoration: none;
+  //border: 2px solid red;
+}
 
 @media only screen and (min-width: 29.8125rem /*477px*/) {
   .ft-main {
@@ -290,30 +112,6 @@ body {
     justify-content: space-evenly; /* Or space-evenly, based on your media queries */
     padding: 1rem 1.875rem;
   }
-}
-
-form {
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 0.3125rem;
-}
-input[type="email"] {
-    border: 0;
-    padding: 0.625rem;
-    margin-top: 0.3125rem;
-    border-top-left-radius: 0.9225rem; /* Curve the top-left corner */
-    border-bottom-left-radius: 0.9225rem; /* Curve the bottom-left corner */
-    
-}
-input[type="submit"] {
-    background-color: #00d188;
-    color: #fff;
-    cursor: pointer;
-    border: 0;
-    padding: 0.625rem 0.9375rem;
-    margin-top: 0.3125rem;
-    border-top-right-radius: 0.9225rem; /* Curve the top-left corner */
-    border-bottom-right-radius: 0.9225rem; /* Curve the bottom-left corner */
 }
 
 // Line Up Legal Footer (copyright)
@@ -337,4 +135,3 @@ input[type="submit"] {
 .ft-legal-list li:nth-last-child(2) {
   flex: 1; /* same as flex-grow: 1; */
 }
-
