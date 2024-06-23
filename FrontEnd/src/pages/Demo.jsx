@@ -1,34 +1,255 @@
-// src/pages/Demo.jsx
-import React from 'react';
-import '../styles/Demo.scss'; 
+// import "../styles/Demo.scss";
+// import React, { useState, useEffect, useRef } from "react";
+// import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+// import axios from "axios";
+// import "leaflet/dist/leaflet.css";
+// import Slider from "@mui/material/Slider";
+
+// const Demo = () => {
+//   const [year, setYear] = useState(2024);
+//   const [geoData, setGeoData] = useState(null);
+//   const geoJsonLayerRef = useRef(null); // Create a ref for the GeoJSON layer
+
+//   useEffect(() => {
+//     axios
+//       .get(`http://localhost:8000/data/${year}`)
+//       .then((response) => {
+//         console.log(response.data); // Log the response data
+//         setGeoData(response.data);
+//       })
+//       .catch((error) => {
+//         console.error("There was an error fetching the data!", error);
+//       });
+//   }, [year]);
+
+//   const handleYearChange = (event, newValue) => {
+//     setYear(newValue);
+//   };
+
+//   const getColor = (risk) => {
+//     return risk > 0.75
+//       ? "#800026"
+//       : risk > 0.5
+//       ? "#BD0026"
+//       : risk > 0.25
+//       ? "#E31A1C"
+//       : "#FFEDA0";
+//   };
+
+//   const style = (feature) => {
+//     const risk = feature.properties?.gentrification_risk; // Use optional chaining
+//     console.log('Feature:', feature); 
+//     if (risk === undefined) {
+//       console.error("gentrification_risk is undefined for feature", feature);
+//       return {
+//         fillColor: "#FFEDA0", // Default color for undefined risk
+//         weight: 2,
+//         opacity: 0.5,
+//         color: "white",
+//         dashArray: "3",
+//         fillOpacity: 0.2,
+//       };
+//     }
+
+//     return {
+//       fillColor: getColor(risk),
+//       weight: 2,
+//       opacity: 0.5,
+//       color: "white",
+//       dashArray: "3",
+//       fillOpacity: 0.5,
+//     };
+//   };
+
+//   useEffect(() => {
+//     if (geoJsonLayerRef.current) {
+//       geoJsonLayerRef.current.clearLayers(); // Clear the existing layers
+//       geoJsonLayerRef.current.addData(geoData); // Add new data
+//     }
+//   }, [geoData]); // Update whenever geoData changes
+
+//   return (
+//     <div>
+//       <Slider
+//         value={year}
+//         min={2001}
+//         max={2034}
+//         onChange={handleYearChange}
+//         valueLabelDisplay="auto"
+//       />
+//       <MapContainer
+//         center={[45.5017, -73.5673]}
+//         zoom={12}
+//         style={{ height: "600px", width: "100%" }}
+//       >
+//         <TileLayer
+//           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+//           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+//         />
+//         {geoData && (
+//           <GeoJSON 
+//             data={geoData} 
+//             style={style} 
+//             onEachFeature={(feature, layer) => {
+//               layer.bindPopup(`<strong>Tract ID:</strong> ${feature.properties.tract_id}<br><strong>Risk:</strong> ${feature.properties.gentrification_risk}`);
+//             }} 
+//             ref={geoJsonLayerRef} // Attach the ref to the GeoJSON layer
+//           />
+//         )}
+//       </MapContainer>
+//     </div>
+//   );
+// };
+
+// export default Demo;
+
+import "../styles/Demo.scss";
+import React, { useState, useEffect, useRef } from "react";
+import { MapContainer, TileLayer, GeoJSON, Popup } from "react-leaflet";
+import axios from "axios";
+import "leaflet/dist/leaflet.css";
+import Slider from "@mui/material/Slider";
 
 const Demo = () => {
-    return (
-        <div className="demo-container">
-            <h1>Demo Page</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam maximus dolor vel euismod elementum. Aliquam magna ipsum, tristique sit amet sagittis eget, pharetra id erat. Fusce feugiat magna ante, in venenatis ex efficitur a. Suspendisse ipsum elit, dignissim non sem sit amet, aliquet auctor mi. Quisque ante augue, semper a lorem sed, viverra dictum urna. Cras at libero commodo, efficitur enim ac, ornare sapien. Nam a eros ac leo pharetra venenatis. Nullam hendrerit, enim a semper suscipit, mi ipsum convallis nibh, ut auctor purus sem vel felis. Fusce semper ultrices leo ut sollicitudin. Fusce venenatis pharetra metus et mollis.
+  const [year, setYear] = useState(2021);
+  const [geoData, setGeoData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const geoJsonLayerRef = useRef(null);
 
-                Nullam eu dictum diam, at sollicitudin tellus. In leo ligula, commodo fermentum porttitor in, pretium porttitor dolor. Cras finibus, justo ut congue sagittis, lorem lorem tempor leo, in ultricies enim purus nec lectus. Nunc malesuada accumsan nibh at mattis. Etiam vitae aliquam dolor, at elementum ex. Donec id egestas elit. Integer eleifend mollis condimentum. Etiam luctus sapien quis purus feugiat, nec faucibus risus elementum. Curabitur ut erat ac sapien sodales vulputate non id nisi. Duis efficitur erat urna, nec placerat turpis tincidunt gravida. Sed non lectus vitae nisl accumsan hendrerit et sit amet dui. Nam ultrices velit ut mi tempus facilisis. Nullam sagittis tincidunt ipsum, id consequat risus consectetur non.
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`http://localhost:8000/data/${year}`)
+      .then((response) => {
+        console.log(`GeoJSON Data for ${year}:`, response.data);
+        setGeoData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(`There was an error fetching the data for ${year}!`, error);
+        setLoading(false);
+      });
+  }, [year]);
 
-                Pellentesque eu faucibus odio. Praesent ac pellentesque diam, non tempus lorem. Ut id nisl facilisis neque pellentesque commodo a a ex. Nulla nec hendrerit nibh. Nunc eu accumsan velit. Ut congue lectus at nisi blandit lacinia. Curabitur velit est, sollicitudin quis efficitur non, lobortis in felis. Ut ultricies ultrices efficitur. Integer lobortis, tortor eget iaculis mattis, mi elit bibendum arcu, eu malesuada lectus ipsum et sem. <br></br>
-                Suspendisse non sem lectus. Aliquam ac consequat lorem. Nunc justo felis, hendrerit et elit sed, suscipit congue sapien.
+  const handleYearChange = (event, newValue) => {
+    setYear(newValue);
+  };
 
-                Suspendisse a nisi in augue tempus tristique et ultrices nunc. Proin a risus eget augue posuere ultricies. Morbi consectetur dolor sit amet nisl dapibus, at pellentesque turpis finibus. Morbi eu blandit ante. Cras aliquam tincidunt orci, non elementum diam rhoncus non. Nunc ornare ex sed nulla porta, sit amet rhoncus turpis vestibulum. Sed cursus semper sem, ut sodales metus tristique eget. Duis dolor enim, posuere vel erat quis, tempus maximus est.
+  const getColor = (gentrified, gentrifiable) => {
+    // Convert 1/0 to true/false if necessary
+    gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
+    gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
 
-                Mauris eget dolor suscipit, tincidunt mauris a, placerat justo. In maximus fermentum posuere. Donec convallis justo ac ipsum vehicula, a rutrum ante ornare. Fusce fringilla metus nec lobortis feugiat. Donec convallis interdum vestibulum. Suspendisse consectetur mollis ex quis vulputate. Nullam mattis sapien a tristique pellentesque. Aliquam scelerisque et ex mollis rutrum. Sed semper mi non turpis posuere, nec finibus elit vehicula. Aenean congue sem nisi, eget aliquet lectus viverra eget. Maecenas semper metus ac vehicula fermentum. Aenean tortor erat, interdum vel augue quis, iaculis venenatis nunc. Aliquam elit sem, laoreet eu laoreet ut, posuere at sem. Pellentesque iaculis dui vel augue venenatis, at sollicitudin mi ornare. Mauris ultrices sit amet nisi non fringilla.<br></br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam maximus dolor vel euismod elementum. Aliquam magna ipsum, tristique sit amet sagittis eget, pharetra id erat. Fusce feugiat magna ante, in venenatis ex efficitur a. Suspendisse ipsum elit, dignissim non sem sit amet, aliquet auctor mi. Quisque ante augue, semper a lorem sed, viverra dictum urna. Cras at libero commodo, efficitur enim ac, ornare sapien. Nam a eros ac leo pharetra venenatis. Nullam hendrerit, enim a semper suscipit, mi ipsum convallis nibh, ut auctor purus sem vel felis. Fusce semper ultrices leo ut sollicitudin. Fusce venenatis pharetra metus et mollis.
+    if (gentrified === null || gentrifiable === null) {
+      return "#808080"; // Grey for null values
+    }
+    if (gentrified === true && gentrifiable === true) {
+      return "#BD0026"; // Darkest red
+    }
+    if (gentrified === false && gentrifiable === true) {
+      return "#fe901f"; // Second darkest shade of red
+    }
+    if (gentrified === true && gentrifiable === false) {
+      return "#fe901f"; // Third darkest shade of red
+    }
+    if (gentrified === false && gentrifiable === false) {
+      return "#FFEDA0"; // Lightest shade of red
+    }
+    return "#808080"; // Default grey
+  };
 
-                Nullam eu dictum diam, at sollicitudin tellus. In leo ligula, commodo fermentum porttitor in, pretium porttitor dolor. Cras finibus, justo ut congue sagittis, lorem lorem tempor leo, in ultricies enim purus nec lectus. Nunc malesuada accumsan nibh at mattis. Etiam vitae aliquam dolor, at elementum ex. Donec id egestas elit. Integer eleifend mollis condimentum. Etiam luctus sapien quis purus feugiat, nec faucibus risus elementum. Curabitur ut erat ac sapien sodales vulputate non id nisi. Duis efficitur erat urna, nec placerat turpis tincidunt gravida. Sed non lectus vitae nisl accumsan hendrerit et sit amet dui. Nam ultrices velit ut mi tempus facilisis. Nullam sagittis tincidunt ipsum, id consequat risus consectetur non.
+  const style = (feature) => {
+    let gentrified = feature.properties?.gentrified;
+    let gentrifiable = feature.properties?.gentrifiable;
 
-                Pellentesque eu faucibus odio. Praesent ac pellentesque diam, non tempus lorem. Ut id nisl facilisis neque pellentesque commodo a a ex. Nulla nec hendrerit nibh. Nunc eu accumsan velit. Ut congue lectus at nisi blandit lacinia. Curabitur velit est, sollicitudin quis efficitur non, lobortis in felis. Ut ultricies ultrices efficitur. Integer lobortis, tortor eget iaculis mattis, mi elit bibendum arcu, eu malesuada lectus ipsum et sem. <br></br>
-                Suspendisse non sem lectus. Aliquam ac consequat lorem. Nunc justo felis, hendrerit et elit sed, suscipit congue sapien.
+    // Convert 1/0 to true/false if necessary
+    gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
+    gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
 
-                Suspendisse a nisi in augue tempus tristique et ultrices nunc. Proin a risus eget augue posuere ultricies. Morbi consectetur dolor sit amet nisl dapibus, at pellentesque turpis finibus. Morbi eu blandit ante. Cras aliquam tincidunt orci, non elementum diam rhoncus non. Nunc ornare ex sed nulla porta, sit amet rhoncus turpis vestibulum. Sed cursus semper sem, ut sodales metus tristique eget. Duis dolor enim, posuere vel erat quis, tempus maximus est.
+    return {
+      fillColor: getColor(gentrified, gentrifiable),
+      weight: 2,
+      opacity: 1,
+      color: "white",
+      dashArray: "3",
+      fillOpacity: 0.7,
+    };
+  };
 
-                Mauris eget dolor suscipit, tincidunt mauris a, placerat justo.
-            </p>
-        </div>
-    );
+  const onEachFeature = (feature, layer) => {
+    if (!feature.geometry || !feature.geometry.coordinates) {
+      console.warn("Invalid feature:", feature);
+      return;
+    }
+
+    let gentrified = feature.properties?.gentrified;
+    let gentrifiable = feature.properties?.gentrifiable;
+    const gentrification_level = feature.properties?.gentrification_level;
+
+    // Convert 1/0 to true/false if necessary
+    gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
+    gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
+
+    const popupContent = `
+      <div>
+        <p>Gentrified: ${gentrified !== null ? gentrified : "Gentrified is null"}</p>
+        <p>Gentrifiable: ${gentrifiable !== null ? gentrifiable : "Gentrifiable is null"}</p>
+        <p>Gentrification Level: ${gentrification_level !== null ? gentrification_level : "Gentrification level is null"}</p>
+      </div>
+    `;
+
+    layer.bindPopup(popupContent);
+  };
+
+  useEffect(() => {
+    if (geoJsonLayerRef.current && geoData && !loading) {
+      geoJsonLayerRef.current.clearLayers(); // Clear the existing layers
+      geoJsonLayerRef.current.addData(geoData); // Add new data
+    }
+  }, [geoData, loading]); // Update whenever geoData changes
+
+  const marks = [
+    { value: 2006, label: "2006" },
+    { value: 2011, label: "2011" },
+    { value: 2016, label: "2016" },
+    { value: 2021, label: "2021" },
+    { value: 2026, label: "2026" },
+  ];
+
+  return (
+    <div>
+      <div className="slider-container">
+        <Slider
+          className="time-slider"
+          value={year}
+          min={2006}
+          max={2026}
+          step={null}
+          marks={marks}
+          onChange={handleYearChange}
+          valueLabelDisplay="auto"
+        />
+      </div>
+      <MapContainer
+        center={[45.5017, -73.5673]}
+        zoom={12}
+        style={{ height: "600px", width: "100%" }}
+      >
+        <TileLayer
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        />
+        {!loading && geoData && (
+          <GeoJSON
+            data={geoData}
+            style={style}
+            onEachFeature={onEachFeature}
+            ref={geoJsonLayerRef}
+          />
+        )}
+      </MapContainer>
+    </div>
+  );
 };
 
 export default Demo;
