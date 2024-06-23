@@ -9,7 +9,7 @@
 .background-image {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full height */
+  height: 100vh; 
   background: url('../pictures/CollegeStreet.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
   padding: 20px;
   border-radius: 12px;
   max-width: 50%;
-  animation: slideInRight 0.5s ease;
+  animation: slideInRight 1.2s ease;
 }
 
 .text-container h1 {
@@ -38,27 +38,28 @@
   font-weight: bold; /* Added bold */
 }
 
-.mission-container, .involvement-container, .land-acknowledgment-container {
+.mission-container, .involvement-container {
   display: flex;
   padding: 50px 30px;
 }
 
-.mission-left, .involvement-left, .land-acknowledgment-left {
+.mission-left, .involvement-left {
   flex: 1;
   padding: 20px;
   position: sticky;
   top: 0;
 }
 
-.mission-left h2, .involvement-left h2, .land-acknowledgment-left h2 {
+.mission-left h2, .involvement-left h2 {
   font-size: 2.5rem;
   color: #fff;
   background: #355D4F;
   padding: 10px;
   border-radius: 8px;
+  font-weight: bold;
 }
 
-.mission-left a, .involvement-left a, .land-acknowledgment-left a {
+.mission-left a, .involvement-left a {
   display: block;
   margin-top: 20px;
   font-size: 1.25rem;
@@ -67,18 +68,18 @@
   font-weight: bold;
 }
 
-.mission-left a:hover, .involvement-left a:hover, .land-acknowledgment-left a:hover {
+.mission-left a:hover, .involvement-left a:hover {
   text-decoration: underline;
 }
 
-.mission-right, .involvement-right, .land-acknowledgment-right {
+.mission-right, .involvement-right {
   flex: 3;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto; 
 }
 
-.mission-box, .involvement-box, .land-acknowledgment-box {
+.mission-box, .involvement-box {
   flex: none;
   width: 100%; /* Full width */
   margin-bottom: 20px;
@@ -95,43 +96,30 @@
   height: auto;
 }
 
-.mission-box p, .involvement-box p, .land-acknowledgment-box p {
+.mission-box p, .involvement-box p {
   padding: 20px;
   font-size: 1rem;
   color: #333;
 }
 
-.involvement-section, .land-acknowledgment-section {
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 12px;
-  animation: fadeIn 1s ease;
+.land-acknowledgment-container {
+  padding: 50px 30px;
+  text-align: center;
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(20px); /* Initial state for animation */
 }
 
-.involvement-section h2, .land-acknowledgment-section h2 {
-  font-size: 2rem;
-  color: #355D4F;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #355D4F;
-  padding-bottom: 10px;
-}
-
-.involvement-section p, .land-acknowledgment-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
-}
-
-.involvement-section a, .land-acknowledgment-section a {
-  color: #355D4F;
-  text-decoration: none;
+.land-acknowledgment-container h2 {
+  font-size: 2.5rem;
   font-weight: bold;
-  transition: color 0.3s;
+  color: #eee;
+  margin-bottom: 20px;
 }
 
-.involvement-section a:hover, .land-acknowledgment-section a:hover {
-  color: #6DA34D;
-  text-decoration: underline;
+.land-acknowledgment-container p {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #eee;
 }
 
 @keyframes fadeIn {

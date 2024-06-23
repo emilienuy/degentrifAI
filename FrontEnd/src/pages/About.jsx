@@ -40,8 +40,23 @@ const About = () => {
 
         animateSections('.mission-container', '.mission-box');
         animateSections('.involvement-container', '.involvement-box');
-        animateSections('.land-acknowledgment-container', '.land-acknowledgment-box');
 
+        const landAcknowledgment = document.querySelector('.land-acknowledgment-container');
+        const handleScrollLandAcknowledgment = () => {
+            const sectionPosition = landAcknowledgment.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            if (sectionPosition < screenPosition) {
+                landAcknowledgment.style.transition = 'opacity 1s ease, transform 1s ease';
+                landAcknowledgment.style.opacity = 1;
+                landAcknowledgment.style.transform = 'translateY(0)';
+            }
+        };
+
+        window.addEventListener('scroll', handleScrollLandAcknowledgment);
+
+        return () => {
+            window.removeEventListener('scroll', handleScrollLandAcknowledgment);
+        };
     }, []);
 
     return (
@@ -59,7 +74,7 @@ const About = () => {
                     <a href="/process">Click here to learn more about our process.</a>
                 </div>
                 <div className="mission-right">
-                    <div className="mission-box"> 
+                    <div className="mission-box">
                         <p><strong>Why DegentrifAI?</strong><br />
                         Gentrification can have profound impacts on neighborhoods, affecting housing affordability, cultural identity, and social dynamics. Our website aims to shed light on these complex issues, enabling residents, policymakers, investors, and researchers to understand the evolving landscape of Montreal.</p>
                     </div>
@@ -77,14 +92,14 @@ const About = () => {
             <section className="involvement-container">
                 <div className="involvement-left">
                     <h2>GET INVOLVED</h2>
-                    <a href="/get-involved">Click here to learn more about how you can get involved.</a>
+                    <a href="/team">Click here to get involved.</a>
                 </div>
                 <div className="involvement-right">
                     <div className="involvement-box">
                         <p>Join us in exploring the dynamics of gentrification in Montreal. Whether you're a resident concerned about neighborhood changes, an investor seeking ethical and sustainable opportunities, or a researcher studying urban development, DegentrifAI is here to support your interests and initiatives.</p>
                     </div>
                     <div className="involvement-box">
-                        <p>Have questions or feedback? We'd love to hear from you! Contact our team at <a href="mailto:your-email@example.com">your-email@example.com</a> to get in touch.</p>
+                        <p>Have questions or feedback? We'd love to hear from you! Contact our <a href="/team"> TEAM</a> to get in touch.</p>
                     </div>
                     <div className="involvement-box">
                         <p>Thank you for visiting DegentrifAI. Together, let's navigate the future of Montreal's neighborhoods with knowledge and insight.</p>
@@ -93,18 +108,10 @@ const About = () => {
             </section>
 
             <section className="land-acknowledgment-container">
-                <div className="land-acknowledgment-left">
-                    <h2>LAND ACKNOWLEDGMENT</h2>
-                    <a href="/land-acknowledgment">Click here to learn more about our land acknowledgment.</a>
-                </div>
-                <div className="land-acknowledgment-right">
-                    <div className="land-acknowledgment-box">
-                        <p>As our project pertains to discussions of land and neighborhoods in Tiohtiá:ke/Montreal, we would like to acknowledge, recognize, and respect the Kanien’kehà:ka as the traditional custodians of the lands and waters which we stand on. Mila is situated on the traditional territory of the Kanien’kehà:ka, a place which has long served as a site of meeting and exchange amongst many First Nations including the Kanien’kehá:ka of the Haudenosaunee Confederacy, Huron/Wendat, Abenaki, and Anishinaabeg.</p>
-                    </div>
-                    <div className="land-acknowledgment-box">
-                        <p>In future iterations of DegentrifAI, we hope to integrate more Indigenous expertise and perspectives into the design of our website and the mission of our project.</p>
-                    </div>
-                </div>
+                <h2>LAND ACKNOWLEDGMENT</h2>
+                <p>As our project pertains to discussions of land and neighborhoods in Tiohtiá:ke/Montreal, we would like to acknowledge, recognize, and respect the Kanien’kehà:ka as the traditional custodians of the lands and waters which we stand on. Mila is situated on the traditional territory of the Kanien’kehà:ka,
+                     a place which has long served as a site of meeting and exchange amongst many First Nations including the Kanien’kehá:ka of the Haudenosaunee Confederacy, Huron/Wendat, Abenaki, and Anishinaabeg.</p>
+                <p>In future iterations of DegentrifAI, we hope to integrate more Indigenous expertise and perspectives into the design of our website and the mission of our project.</p>
             </section>
         </div>
     );
