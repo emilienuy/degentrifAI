@@ -32,7 +32,7 @@ const Team = () => {
       imgSrc: TheresaQuan,
       email: 'ytquan@umich.edu',
       linkedIn: 'https://www.linkedin.com/in/yutong-quan-41b0a9268',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
+      description: `Hi, I'm originally from Wuhan, China. I recently completed my second year as a Computer Science and Economics student at McGill University. This fall, I'll be starting a new journey as a Data Science student at the University of Michigan, Ann Arbor. Outside of academics, I'm passionate about street photography (follow my Instagram @theresas_photogarllery), mixology, and playing tennis.`,
     },
     {
       name: 'Emilie Nuyttens',
@@ -60,7 +60,7 @@ const Team = () => {
       imgSrc: Ali, 
       email: 'nastaran.alizade@example.com',
       linkedIn: 'https://www.linkedin.com/in/nastaranalizade',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
+      description: 'Ali is our group TA. We greatly appreciate all the support and encouragement he has provided!',
     },
   ];
 
