@@ -8,15 +8,30 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import PublicIcon from '@mui/icons-material/Public';
 
 const Process = () => {
-  const [selectedStep, setSelectedStep] = useState(null);
+  const [selectedStep, setSelectedStep] = useState({
+    id: 1,
+    title: 'Literature Review',
+    description: `In the initial phase of our project, we embarked on a comprehensive literature review encompassing studies on gentrification,
+    urban renewal, and prior initiatives integrating machine learning with gentrification analysis. Our aim was to acquire a thorough understanding
+    of the social, geographical, economic, and political dimensions of gentrification and its interface with artificial intelligence (AI).\n
+
+    The use of machine learning techniques for gentrification prediction has been documented in various global contexts, including Sydney [1],
+    Mexico City [2], London [3], Ottawa [4], numerous cities across the US [5], [6], [7], [8], [9]. Each study we surveyed employed distinct
+    data measures for prediction, ranging from analyzing housing price [9] trends to harnessing Google Earth satellite imagery [6]. Additionally,
+    a variety of machine learning models were employed, such as logistic regression to classify neighborhoods [7] and Natural Language Processing 
+    (NLP) for classifying Airbnb reviews [10].\n
+
+    Through our review, we identified an opportunity to develop a novel predictive model tailored to the unique dynamics of gentrification in Montreal, 
+    a venture not previously undertaken in the city.`,
+    icon: <FindInPageIcon />
+  });
   const [loaded, setLoaded] = useState(false);
 
   const steps = [
-    { id: 1, 
-      title: 'Literature Review', 
-      description: `In the initial phase of our project, we embarked on a comprehensive literature review encompassing studies on gentrification,
-       urban renewal, and prior initiatives integrating machine learning with gentrification analysis. Our aim was to acquire a thorough understanding
-        of the social, geographical, economic, and political dimensions of gentrification and its interface with artificial intelligence (AI).\n
+    {
+      id: 1, title: 'Literature Review', description: `In the initial phase of our project, we embarked on a comprehensive literature review encompassing studies on gentrification,
+      urban renewal, and prior initiatives integrating machine learning with gentrification analysis. Our aim was to acquire a thorough understanding
+      of the social, geographical, economic, and political dimensions of gentrification and its interface with artificial intelligence (AI).\n
 
       The use of machine learning techniques for gentrification prediction has been documented in various global contexts, including Sydney [1],
        Mexico City [2], London [3], Ottawa [4], numerous cities across the US [5], [6], [7], [8], [9]. Each study we surveyed employed distinct
@@ -26,7 +41,8 @@ const Process = () => {
 
       Through our review, we identified an opportunity to develop a novel predictive model tailored to the unique dynamics of gentrification in Montreal, 
       a venture not previously undertaken in the city.`,
-    icon: <FindInPageIcon /> },
+      icon: <FindInPageIcon />
+    },
     { id: 2, title: 'Expert Consultation', description: '', icon: <HandshakeIcon />, content: (
       <section className="expert-consultation-section horizontal">
         <ExpertCard
@@ -66,8 +82,9 @@ const Process = () => {
         />
       </section>
     )},
-    { id: 3, 
-      title: 'Data Collection and Cleaning', 
+    {
+      id: 3,
+      title: 'Data Collection and Cleaning',
       description: `DegentrifAI relies on Census data provided by Statistics Canada[13], spanning the years 1996 to 2021. Census data is compiled
        every five years, and for our analysis, we've gathered data from the following years: 1996, 2001, 2006, 2011, 2016, and 2021.\n
 
@@ -90,8 +107,9 @@ const Process = () => {
        patterns in Canadian urban centers. Our team met with the authors to discuss the census data sets and gentrification measures that we should use.
         After consultation, we decided to use the Ding measure, as it most accurately captures observed gentrification in Canadian cities [12].
         After consulting the GENUINE team, who 
-      Ding measures: Gentrifiable, Gentrified, Gentrification Level`, 
-      icon: <StorageIcon /> },
+      Ding measures: Gentrifiable, Gentrified, Gentrification Level`,
+      icon: <StorageIcon />
+    },
     { id: 4, title: 'Model Training', description: 'Detailed information about Model Training', icon: <PrecisionManufacturingIcon /> },
     { id: 5, title: 'Final Prototype', description: 'Detailed information about Final Prototype', icon: <RocketLaunchIcon /> },
     { id: 6, title: 'Future Applications', description: 'Detailed information about Future Applications', icon: <PublicIcon /> },
@@ -146,7 +164,6 @@ const TimelineStep = ({ step, index, isSelected, onClick }) => (
     className={`timeline-step animated fadeInUp`}
     style={{ animationDelay: `${index * 0.3}s` }}
     onClick={onClick}
-    //style={{ cursor: 'pointer' }}
   >
     <div className={`timeline-content ${isSelected ? 'active' : ''}`}>
       <div className={`icon-container ${isSelected ? 'selected' : ''}`}>{step.icon}</div>
