@@ -1,46 +1,45 @@
 {
     "type": "FeatureCollection",
     "features": [
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [-73.5815, 45.523],
-              [-73.5815, 45.5275],
-              [-73.576, 45.5275],
-              [-73.576, 45.523],
-              [-73.5815, 45.523]
-            ]
-          ]
-        },
-        "properties": {
-          "tract_id": "123456",
-          "year": 2005,
-          "gentrification_risk": 1.0
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": [
-            [
-              [-73.5815, 45.523],
-              [-73.5815, 45.5275],
-              [-73.576, 45.5275],
-              [-73.576, 45.523],
-              [-73.5815, 45.523]
-            ]
-          ]
-        },
-        "properties": {
-          "tract_id": "123450",
-          "year": 2010,
-          "gentrification_risk": 0.1
-        }
-      }
+    {
+    "type": "Feature",
+    "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+    [
+    [-73.5815, 45.523],
+    [-73.5815, 45.5275],
+    [-73.576, 45.5275],
+    [-73.576, 45.523],
+    [-73.5815, 45.523]
     ]
-  }
-  
+    ]
+    },
+    "properties": {
+    "tract_id": "123456",
+    "year": 2005,
+    "gentrification_risk": 1.0
+    }
+    },
+    {
+    "type": "Feature",
+    "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+    [
+    [-73.5815, 45.523],
+    [-73.5815, 45.5275],
+    [-73.576, 45.5275],
+    [-73.576, 45.523],
+    [-73.5815, 45.523]
+    ]
+    ]
+    },
+    "properties": {
+    "tract_id": "123450",
+    "year": 2010,
+    "gentrification_risk": 0.1
+    }
+    }
+    ]
+    }
