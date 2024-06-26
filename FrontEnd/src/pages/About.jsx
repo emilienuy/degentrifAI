@@ -79,8 +79,8 @@ const About = () => {
                         Gentrification can have profound impacts on neighborhoods, affecting housing affordability, cultural identity, and social dynamics. Our website aims to shed light on these complex issues, enabling residents, policymakers, investors, and researchers to understand the evolving landscape of Montreal.</p>
                     </div>
                     <div className="mission-box">
-                        <p><strong>What is DegentrifAI?</strong><br />
-                        DegentrifAI is an interactive tool that maps and predicts gentrification across the Montreal metropolitan area.</p>
+                        <p><strong>What is degentrifAI?</strong><br />
+                        DegentrifAI is an interactive tool that maps and predicts gentrification across the Montreal metropolitan area. The platform democratizes data on gentrification and empowers users with resources to protect themselves and their small businesses.</p>
                     </div>
                     <div className="mission-box">
                         <p><strong>How does it work?</strong><br />
