@@ -7,9 +7,23 @@ import Slider from "@mui/material/Slider";
 
 const Demo = () => {
   const [year, setYear] = useState(2021);
-  const [geoData, setGeoData] = useState(null);
+  const [coordinates, setCoordinates] = useState(null);
+  const [yearlyData, setYearlyData] = useState(null);
   const [loading, setLoading] = useState(false);
   const geoJsonLayerRef = useRef(null);
+
+  useEffect(() => {
+    console.log("Fetching coordinates data");
+    axios
+      .get("http://localhost:8000/coordinates")
+      .then((response) => {
+        console.log("Coordinates data:", response.data);
+        setCoordinates(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the coordinates data!", error);
+      });
+  }, []);
 
   useEffect(() => {
     console.log(`Fetching data for year: ${year}`);
@@ -17,8 +31,8 @@ const Demo = () => {
     axios
       .get(`http://localhost:8000/data/${year}`)
       .then((response) => {
-        console.log(`GeoJSON Data for ${year}:`, response.data);
-        setGeoData(response.data);
+        console.log(`Yearly data for ${year}:`, response.data);
+        setYearlyData(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -43,10 +57,10 @@ const Demo = () => {
       return "#BD0026"; // Darkest red
     }
     if (gentrified === false && gentrifiable === true) {
-      return "#fe901f"; // Second darkest shade of red
+      return "#FE901F"; // Second darkest shade of red
     }
     if (gentrified === true && gentrifiable === false) {
-      return "#fe901f"; // Third darkest shade of red
+      return "#FE901F"; // Third darkest shade of red
     }
     if (gentrified === false && gentrifiable === false) {
       return "#FFEDA0"; // Lightest shade of red
@@ -57,7 +71,6 @@ const Demo = () => {
   const style = (feature) => {
     let gentrified = feature.properties?.gentrified;
     let gentrifiable = feature.properties?.gentrifiable;
-
     gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
     gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
 
@@ -81,6 +94,7 @@ const Demo = () => {
     let gentrifiable = feature.properties?.gentrifiable;
     const gentrification_level = feature.properties?.gentrification_level;
     const tract = feature.properties?.tract_id || "N/A";
+    const neighborhoodName = feature.properties?.neighbourhood || "Unknown neighborhood";
 
     gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
     gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
@@ -89,13 +103,14 @@ const Demo = () => {
                                     gentrification_level === 1 ? "weak" :
                                     gentrification_level === 2 ? "moderate" :
                                     gentrification_level === 3 ? "intense" : "unknown";
-
     const gentrificationText = year === 2026 ? "will be gentrified" : "was gentrified";
+    const gentrifiedStatus = gentrified ? "has been" : "has not been";
 
     const popupContent = `
       <div>
+        <p><strong>${neighborhoodName}</strong></p>
         <p>This neighbourhood is deemed ${gentrifiable ? "gentrifiable, meaning it is likely to experience gentrification in the future." : "not gentrifiable, meaning it is not likely to experience gentrification in the future."}</p>
-        <p>(tract ${tract}) ${gentrificationText} in ${year}.</p>
+        <p>(tract ${tract}) ${gentrifiedStatus} ${gentrificationText} in ${year}.</p>
         <p>The level of gentrification is ${gentrificationLevelText}.</p>
       </div>
     `;
@@ -104,12 +119,25 @@ const Demo = () => {
   };
 
   useEffect(() => {
-    if (geoJsonLayerRef.current && geoData && !loading) {
+    if (geoJsonLayerRef.current && coordinates && yearlyData && !loading) {
       console.log("Updating GeoJSON layer with new data");
       geoJsonLayerRef.current.clearLayers(); // Clear the existing layers
-      geoJsonLayerRef.current.addData(geoData); // Add new data
+      const combinedData = {
+        type: "FeatureCollection",
+        features: coordinates.features.map((coordFeature) => {
+          const yearlyFeature = yearlyData.features.find((yearFeature) => yearFeature.properties.tract_id === coordFeature.properties.tract_id);
+          return {
+            ...coordFeature,
+            properties: {
+              ...coordFeature.properties,
+              ...yearlyFeature?.properties,
+            },
+          };
+        }),
+      };
+      geoJsonLayerRef.current.addData(combinedData); // Add new data
     }
-  }, [geoData, loading]); // Update whenever geoData changes
+  }, [coordinates, yearlyData, loading]); // Update whenever coordinates, yearlyData, or loading changes
 
   const marks = [
     { value: 2006, label: "2006" },
@@ -130,9 +158,9 @@ const Demo = () => {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         />
-        {!loading && geoData && (
+        {!loading && coordinates && yearlyData && (
           <GeoJSON
-            data={geoData}
+            data={coordinates}
             style={style}
             onEachFeature={onEachFeature}
             ref={geoJsonLayerRef}
@@ -179,189 +207,3 @@ const Demo = () => {
 };
 
 export default Demo;
-
-
-// import "../styles/Demo.scss";
-// import React, { useState, useEffect, useRef } from "react";
-// import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
-// import axios from "axios";
-// import "leaflet/dist/leaflet.css";
-// import Slider from "@mui/material/Slider";
-
-// const Demo = () => {
-//   const [year, setYear] = useState(2021);
-//   const [geoData, setGeoData] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const geoJsonLayerRef = useRef(null);
-
-//   useEffect(() => {
-//     console.log(`Fetching data for year: ${year}`);
-//     setLoading(true);
-//     axios
-//       .get(`http://localhost:8000/data/${year}`)
-//       .then((response) => {
-//         console.log(`GeoJSON Data for ${year}:`, response.data);
-//         setGeoData(response.data);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         console.error(`There was an error fetching the data for ${year}!`, error);
-//         setLoading(false);
-//       });
-//   }, [year]);
-
-//   const handleYearChange = (event, newValue) => {
-//     console.log(`Slider changed to year: ${newValue}`);
-//     setYear(newValue);
-//   };
-
-//   const getColor = (gentrified, gentrifiable) => {
-//     gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
-//     gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
-
-//     if (gentrified === null || gentrifiable === null) {
-//       return "#808080"; // Grey for null values
-//     }
-//     if (gentrified === true && gentrifiable === true) {
-//       return "#BD0026"; // Darkest red
-//     }
-//     if (gentrified === false && gentrifiable === true) {
-//       return "#fe901f"; // Second darkest shade of red
-//     }
-//     if (gentrified === true && gentrifiable === false) {
-//       return "#fe901f"; // Third darkest shade of red
-//     }
-//     if (gentrified === false && gentrifiable === false) {
-//       return "#FFEDA0"; // Lightest shade of red
-//     }
-//     return "#808080"; // Default grey
-//   };
-
-//   const style = (feature) => {
-//     let gentrified = feature.properties?.gentrified;
-//     let gentrifiable = feature.properties?.gentrifiable;
-
-//     gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
-//     gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
-
-//     return {
-//       fillColor: getColor(gentrified, gentrifiable),
-//       weight: 2,
-//       opacity: 1,
-//       color: "white",
-//       dashArray: "3",
-//       fillOpacity: 0.7,
-//     };
-//   };
-
-//   const onEachFeature = (feature, layer) => {
-//     if (!feature.geometry || !feature.geometry.coordinates) {
-//       console.warn("Invalid feature:", feature);
-//       return;
-//     }
-
-//     let gentrified = feature.properties?.gentrified;
-//     let gentrifiable = feature.properties?.gentrifiable;
-//     const gentrification_level = feature.properties?.gentrification_level;
-//     const tract = feature.properties?.tract_id || "N/A";
-//     const neighborhoodName = feature.properties?.neighborhood_name || "Unknown neighborhood";
-
-//     gentrified = gentrified === 1 ? true : gentrified === 0 ? false : gentrified;
-//     gentrifiable = gentrifiable === 1 ? true : gentrifiable === 0 ? false : gentrifiable;
-
-//     const gentrificationLevelText = gentrification_level === 0 ? "very weak" :
-//                                     gentrification_level === 1 ? "weak" :
-//                                     gentrification_level === 2 ? "moderate" :
-//                                     gentrification_level === 3 ? "intense" : "unknown";
-
-//     const gentrificationText = year === 2026 ? "will be gentrified" : "was gentrified";
-
-//     const popupContent = `
-//       <div>
-//         <p><strong>${neighborhoodName}</strong></p>
-//         <p>This neighbourhood is deemed ${gentrifiable ? "gentrifiable, meaning it is likely to experience gentrification in the future." : "not gentrifiable, meaning it is not likely to experience gentrification in the future."}</p>
-//         <p>(tract ${tract}) ${gentrificationText} in ${year}.</p>
-//         <p>The level of gentrification is ${gentrificationLevelText}.</p>
-//       </div>
-//     `;
-
-//     layer.bindPopup(popupContent);
-//   };
-
-//   useEffect(() => {
-//     if (geoJsonLayerRef.current && geoData && !loading) {
-//       console.log("Updating GeoJSON layer with new data");
-//       geoJsonLayerRef.current.clearLayers(); // Clear the existing layers
-//       geoJsonLayerRef.current.addData(geoData); // Add new data
-//     }
-//   }, [geoData, loading]); // Update whenever geoData changes
-
-//   const marks = [
-//     { value: 2006, label: "2006" },
-//     { value: 2011, label: "2011" },
-//     { value: 2016, label: "2016" },
-//     { value: 2021, label: "2021" },
-//     { value: 2026, label: "2026" },
-//   ];
-
-//   return (
-//     <div className="map-container">
-//       <MapContainer
-//         center={[45.5017, -73.5673]}
-//         zoom={12}
-//         style={{ height: "600px", width: "100%" }}
-//       >
-//         <TileLayer
-//           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-//           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-//         />
-//         {!loading && geoData && (
-//           <GeoJSON
-//             data={geoData}
-//             style={style}
-//             onEachFeature={onEachFeature}
-//             ref={geoJsonLayerRef}
-//           />
-//         )}
-//         </MapContainer>
-//         <div className="slider-container">
-//           <Slider
-//             className="time-slider"
-//             value={year}
-//             min={2006}
-//             max={2026}
-//             step={null}
-//             marks={marks}
-//             onChange={handleYearChange}
-//             valueLabelDisplay="auto"
-//             sx={{
-//               color: "white",
-//               '& .MuiSlider-thumb': {
-//                 borderRadius: '1px',
-//                 width: '10px',
-//                 height: '20px',
-//               },
-//               '& .MuiSlider-valueLabel': {
-//                 color: 'white',
-//               },
-//               '& .MuiSlider-markLabel': {
-//                 color: 'white',
-//               },
-//               '& .MuiSlider-track': {
-//                 borderColor: 'white',
-//               },
-//               '& .MuiSlider-rail': {
-//                 color: 'white',
-//               },
-//               '& .MuiSlider-mark': {
-//                 color: 'white',
-//               },
-//             }}
-//           />
-//         </div>
-//       </div>
-//     );
-//   };
-  
-//   export default Demo;       
-

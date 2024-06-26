@@ -3,13 +3,13 @@ body {
 }
 
 .process-container {
-  padding: 100px; 
+  padding: 20px; /* Adjusted padding */
 }
 
 .timeline-steps {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: center; /* Center align horizontally */
+  flex-wrap: wrap; /* Wrap to the next line if necessary */
 }
 
 .timeline-steps .timeline-step {
@@ -23,41 +23,23 @@ body {
   animation-fill-mode: forwards; /* Maintain end state */
 }
 
-@media (min-width: 768px) {
-  .timeline-steps .timeline-step:not(:last-child):after {
-    content: "";
-    display: block;
-    width: 3.46rem;
-    position: absolute;
-    left: 7.5rem;
-    top: 0.3125rem;
-  }
-  .timeline-steps .timeline-step:not(:first-child):before {
-    content: "";
-    display: block;
-    width: 3.8125rem;
-    position: absolute;
-    right: 7.5rem;
-    top: 0.3125rem;
-  }
-}
-
 .timeline-steps .timeline-content {
-  width: 10rem;
-  text-align: center;
+  width: 10rem; /* Fixed width for content */
+  text-align: center; /* Align text to the center */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px; /* Padding for better spacing */
 }
 
 .icon-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px; 
-  width: 50px; 
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  background-color: #343a40; 
-  color: #e9ecef; 
-  margin-bottom: 10px; 
+  background-color: #343a40;
+  color: #e9ecef;
+  margin-bottom: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -75,8 +57,8 @@ body {
   color: #fff; /* Change title color to white */
 }
 
+
 .mission-box {
-  flex: none;
   width: 100%; /* Full width */
   margin-bottom: 20px;
   background: #fff;
@@ -85,8 +67,6 @@ body {
   overflow: hidden;
   padding: 20px; /* Added padding */
   color: #333; /* Text color */
-  opacity: 1; /* Ensure visible */
-  transform: translateX(0); /* Ensure positioned correctly */
 }
 
 .mission-box p {
@@ -138,7 +118,7 @@ body {
 .expert-consultation-section {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .expert-card {

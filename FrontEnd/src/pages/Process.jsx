@@ -13,7 +13,7 @@ const Process = () => {
 
   const overviewSummary = [
     "DegentrifAI was built by a group of 5 machine learning fellows in the AI4Good Lab at Mila. The AI4Good Lab is a 7-week program that equips women and gender diverse people with the skills to build their own machine learning projects.",
-    "Spanning from a diverse set of educational backgrounds, we, the DegentrifAI team, conceptualized and built our project prototype within the span of 3 weeks. To accomplish this, we engaged in insightful ethical discussions, collaborated with field experts, and leveraged our teammate, TA, and mentor’s skill sets in the following manner."
+    "Spanning from a diverse set of educational backgrounds, we, the DegentrifAI team, conceptualized and built our project prototype within the span of 3 weeks. To accomplish this, we engaged in insightful ethical discussions, collaborated with field experts, and leveraged our teammate, TA, and mentor’s skill sets. Click the icons above to explore our process."
   ];
 
   const steps = [
@@ -132,11 +132,13 @@ const Process = () => {
   const handleIconClick = (step) => {
     setSelectedStep(step);
   };
-
+  
   return (
     <div className="process-container">
       <div className={`container ${loaded ? 'loaded' : ''}`}>
-        <div className="row text-center justify-content-center mb-5"></div>
+        <div className="row text-center justify-content-center mb-5">
+
+        </div>
 
         <div className="row">
           <div className="col">
