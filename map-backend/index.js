@@ -113,6 +113,8 @@
 // });
 
 //--------------------------------------------------------------
+// works
+//-------------------------------------------------
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
@@ -184,4 +186,81 @@ app.get('/data/:year', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+//-----------------------------
+
+// const express = require('express');
+// const cors = require('cors');
+// const fs = require('fs');
+// const path = require('path');
+// const csv = require('csv-parser');
+// const app = express();
+// const port = 8000;
+
+// app.use(cors());
+
+// let neighborhoodMapping = {};
+
+// // Load CSV and create mapping
+// const loadCsvData = () => {
+//   const csvFilePath = path.resolve('/path/to/combineddata.csv');
+//   return new Promise((resolve, reject) => {
+//     fs.createReadStream(csvFilePath)
+//       .pipe(csv())
+//       .on('data', (row) => {
+//         neighborhoodMapping[row.CTUID] = row.name_1;
+//       })
+//       .on('end', () => {
+//         console.log('CSV file successfully processed');
+//         resolve();
+//       })
+//       .on('error', (error) => {
+//         console.error('Error reading CSV file:', error);
+//         reject(error);
+//       });
+//   });
+// };
+
+// // Load GeoJSON data and merge with neighborhood names
+// const loadGeoJsonForYear = (year) => {
+//   const filePath = path.resolve('/path/to/data.geojson');
+//   console.log(`Loading GeoJSON data from: ${filePath}`);
+//   if (!fs.existsSync(filePath)) {
+//     throw new Error(`File not found: ${filePath}`);
+//   }
+//   const geoData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+//   const filteredFeatures = geoData.features.filter(feature => feature.properties.year === year);
+
+//   // Add neighborhood names from CSV mapping
+//   filteredFeatures.forEach(feature => {
+//     const ctuid = feature.properties.tract_id;
+//     feature.properties.neighborhood_name = neighborhoodMapping[ctuid] || 'Unknown';
+//   });
+
+//   return {
+//     type: 'FeatureCollection',
+//     features: filteredFeatures
+//   };
+// };
+
+// app.get('/data/:year', async (req, res) => {
+//   const year = parseInt(req.params.year);
+//   console.log(`Received request for year ${year}`);
+//   try {
+//     const data = loadGeoJsonForYear(year);
+//     res.json(data);
+//     console.log(`Sent data for year ${year}`);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send(error.message);
+//   }
+// });
+
+// // Ensure CSV data is loaded once during server start
+// loadCsvData().then(() => {
+//   app.listen(port, () => {
+//     console.log(`Server running on http://localhost:${port}`);
+//   });
+// }).catch(error => {
+//   console.error('Error loading CSV data:', error);
+// });
 
