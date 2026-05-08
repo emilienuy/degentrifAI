@@ -1,7 +1,8 @@
 # DegentrifAI – Predicting Gentrification Risk with Machine Learning
 
-🔗 **Live Tool:** [degentrifai.netlify.app](https://degentrifai.netlify.app/)  
-🔗 **Full Documentation:** [Project Website](https://degentrifai.netlify.app/about)
+🔗 **Full Documentation:** [Project Website](https://degentrifaimtl.vercel.app/)
+
+🔗 **Current Working Demo:** [Predictions Map](https://degentrifaimtl.vercel.app/demo)  
 
 Interactive tool predicting neighborhood gentrification risk across Montreal using 25 years of census data and machine learning.
 
@@ -50,8 +51,7 @@ React-based web application displaying:
 - ML: XGBoost, scikit-learn
 - Geospatial: geopandas, shapely
 - Frontend: React, Leaflet
-- Deployment: Netlify
-
+  
 ---
 
 ## Impact
@@ -80,7 +80,7 @@ From our research and stakeholder consultations:
 - **Gentrification measures & preprocessing** by Benoit Thierry (GENUINE team), used with permission
 - Literature review spanning global gentrification ML studies (Sydney, Mexico City, London, Ottawa, US cities)
 
-Full citations and methodology available on the [project website](https://degentrifai.netlify.app/about).
+Full citations and methodology available on the [project website](https://degentrifaimtl.vercel.app/).
 
 ---
 
